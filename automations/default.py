@@ -76,11 +76,11 @@ class Default(Automation):
         while True:
 
             file_path = file_iterator.pop_file()
-            output_file_path = output_path_resolver.get_output_path(file_path)
             if file_path is None:
                 print_t("All Files Handled.", 'done')
                 break
 
+            output_file_path = output_path_resolver.get_output_path(file_path)
             if mc.SKIP_EXISTING_OUTPUT_FILES and file_exists(output_file_path):
                 print_t(f"Skipping file, output exists at: {output_file_path}", 'quiet')
                 continue
