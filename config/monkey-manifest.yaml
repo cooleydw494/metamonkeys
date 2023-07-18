@@ -16,10 +16,10 @@ comment-monkey:
   FILEPATH_MATCH_EXCLUDE: "help,__init__.py"
   FILE_SELECT_MAX_TOKENS: 7000
   MAX_TOKENS: 8000
-  CONTEXT_FILE_PATH: "help.py"
+#  CONTEXT_FILE_PATH: "help.py"
 
   # Prompts
-  MAIN_PROMPT: "Please add code comments to document the following file: {the-file}. Use PEP8 style docstrings for functions and classes, and single-line comments for other code. Focus on readability and clarity. Rather than include verbose comments, try to make comments elegant and concise. You may add new comments, new docstrings, and edit existing comments. You may also re-order code, but do not add or remove code."
+  MAIN_PROMPT: "Please add code comments to document the following file: {the-file}. Use PEP8 style docstrings for functions and classes, and single-line comments for other code. Focus on readability and clarity. Rather than include verbose comments, try to make comments elegant and concise. You may add new comments, new docstrings, and edit existing comments. You may also re-order code, but do not add or remove code. If there is no value to adding/altering comments, return the original file verbatim."
   MAIN_PROMPT_ULTIMATUM: "Limit your response to the verbatim contents of {the-file}, including all existing code and comments, as well as any new or altered comments you add."
   OUTPUT_EXAMPLE_PROMPT: "Limit your output strictly to the updated contents of the file, like this: [complete contents of file]."
 
@@ -28,7 +28,7 @@ comment-monkey:
   OUTPUT_REMOVE_STRINGS: "```,```python"
 
   # Output Checks
-  OUTPUT_CHECK_PROMPT: 'Examine the following output and determine if it contains on the full contents of a python file. Respond with only one word: "True" or "False".'
+  OUTPUT_CHECK_PROMPT: 'Examine the following and determine if it contains on the contents of a python file only. Respond with only one word: "True" or "False".'
   OUTPUT_TRIES: 3
 
   COMMIT_STYLE: 'gpt'
