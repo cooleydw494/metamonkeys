@@ -7,9 +7,7 @@ from codemonkeys.config.yaml_helpers import get_monkey_config_defaults
 from codemonkeys.utils.monk.theme_functions import print_t
 from codemonkeys.utils.monkey_config.monkey_config_validations import is_prompt_key
 from codemonkeys.defs import MONKEYS_PATH
-from codemonkeys.defs import import_env_class
-
-Env = import_env_class()
+from config.framework.env_class import Env
 
 
 def insert_cop_file_contents(value: str) -> str:
