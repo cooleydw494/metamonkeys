@@ -39,9 +39,9 @@ notate-private-methods-monkey:
   # General
   WORK_PATH: "~/local-git/codemonkeys/codemonkeys"
   FILE_TYPES_INCLUDED: ".py"
-  FILEPATH_MATCH_EXCLUDE: "help,__"
-  FILE_SELECT_MAX_TOKENS: 7000
-  MAX_TOKENS: 8000
+  FILEPATH_MATCH_EXCLUDE: "help,__,defs.py,monkey_config_defaults,commands"
+  FILE_SELECT_MAX_TOKENS: 3000
+  MAX_TOKENS: 4000
 #  CONTEXT_FILE_PATH: "help.py"
 
   # Prompts
