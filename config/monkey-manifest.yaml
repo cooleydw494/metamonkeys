@@ -54,5 +54,5 @@ notate-private-methods-monkey:
   OUTPUT_REMOVE_STRINGS: "```python\n,```python,```"
 
   # Output Checks
-  OUTPUT_CHECK_PROMPT: 'Examine the following output and determine whether it is commented python code only. Respond with only one word: "True" or "False".'
+  OUTPUT_CHECK_PROMPT: 'Is the following the contents of a python file? Respond with only one word: "True" or "False".'
   OUTPUT_TRIES: 3
