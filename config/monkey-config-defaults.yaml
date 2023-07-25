@@ -19,8 +19,8 @@
 #   `modules/source/config/monkey_config_validations.py`
 
 # General
-WORK_PATH: "ROOT_PATH/stor/work_path"
-FILE_TYPES_INCLUDED: ".js,.vue,.php"
+WORK_PATH: "~/local-git/codemonkeys/codemonkeys"
+FILE_TYPES_INCLUDED: ".py"
 FILEPATH_MATCH_INCLUDE: null
 FILEPATH_MATCH_EXCLUDE: "help,__,defs.py"
 FILE_SELECT_MAX_TOKENS: 2000
