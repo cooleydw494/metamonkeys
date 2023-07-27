@@ -62,7 +62,7 @@ STATIC_COMMIT_MESSAGE: 'File updated with CodeMonkeys'
 # Models
 MAIN_MODEL: "gpt-4-0314"
 SUMMARY_MODEL: "gpt-4-0314"
-OUTPUT_CHECK_MODEL: "gpt-3.5-turbo-0301"
+OUTPUT_CHECK_MODEL: "gpt-3.5-turbo"
 
 # Temps
 MAIN_TEMP: 1.0
