@@ -75,6 +75,9 @@ class Default(Automation):
         # Iterate through filtered files
         while True:
 
+            files_remaining = file_iterator.get_filtered_files_count()
+            print_t(f"Files remaining: {files_remaining}", 'info')
+
             file_path = file_iterator.pop_file()
             if file_path is None:
                 print_t("All Files Handled.", 'done')
