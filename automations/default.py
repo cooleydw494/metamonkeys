@@ -108,6 +108,10 @@ class Default(Automation):
                 output_checker.set_current_try(1)
                 while output_checker.has_tries():
                     output = file_prompter.get_output()
+                    if output is None:
+                        print_t(f"Valid output could not be generated for: {file_path}", 'error')
+                        print_t("Output Check not run because no output was generated.", 'info')
+                        break
                     output_valid = output_checker.check_output(output)
                     if output_valid:
                         new_content = output
