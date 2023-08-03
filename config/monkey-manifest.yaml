@@ -47,11 +47,25 @@ ide-documentation-monkey:
 
 docstring-format-monkey:
   # General
-  FILEPATH_MATCH_EXCLUDE: "help,__,defs.py,commands,cli_runnable_class.py,automation_class.py,barrel_class.py,command_class.py,output_checker.py,file_iterator.py,committer.py,theme.py,output_path_resolver.py,file_prompter.py,summarizer.py"
+  FILEPATH_MATCH_EXCLUDE: "help,__,defs.py,commands,example-automation.py,add_monkey_input_prompts,theme.py"
 
   # Prompts
-  MAIN_PROMPT: "Your role is to read the contents of python files, and without changing anything else whatsoever, convert any docstrings not written in the Google style to be written in the Google style."
-  MAIN_PROMPT_ULTIMATUM: "Limit your response to the verbatim contents of {the-file}, including all existing code and comments, as well as any docstring alterations to comply with the Google style. Add nothing else, and remove nothing."
+  MAIN_PROMPT: "Your role is to read the contents of python files, and without changing anything else whatsoever, convert any docstrings not written in the reST style to be written in the reST style."
+  MAIN_PROMPT_ULTIMATUM: "Limit your response to the verbatim contents of {the-file}, including all existing code and comments, as well as any docstring alterations to comply with the reST style. Add nothing else, and remove nothing."
+  OUTPUT_EXAMPLE_PROMPT: "Output should be in the following format with no additional context: [file-contents]"
+
+
+fix-notation-monkey:
+  # General
+  FILEPATH_MATCH_INCLUDE: "monkey_config,yaml_helpers.py"
+#  FILEPATH_MATCH_EXCLUDE: "help,__,defs.py,commands,example-automation.py,add_monkey_input_prompts,theme.py"
+
+  # Context
+  CONTEXT_FILE_PATH: "ROOT_PATH/stor/context/docstring-context.txt"
+
+  # Prompts
+  MAIN_PROMPT: "Your role is to read the contents of python files, and without changing anything else whatsoever, convert any docstring param and return notations to the correct format."
+  MAIN_PROMPT_ULTIMATUM: "Limit your response to the verbatim contents of {the-file}, including all existing code and comments, as well as any docstring alterations to comply with your instructions. Add nothing else, and remove nothing."
   OUTPUT_EXAMPLE_PROMPT: "Output should be in the following format with no additional context: [file-contents]"
 
 

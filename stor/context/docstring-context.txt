@@ -1,0 +1,17 @@
+param and return notation like this:
+
+:param model: The GPT model to be used.
+:type model: str
+:param temp: The temperature to be used.
+:type temp: float
+:param max_tokens: The maximum number of tokens.
+:type max_tokens: int
+:return: Self for method chaining.
+:rtype: Summarizer
+
+should be replaced with notation like this:
+
+:param str model: The GPT model to be used.
+:param float temp: The temperature to be used.
+:param int max_tokens: The maximum number of tokens.
+:return: Self for method chaining.

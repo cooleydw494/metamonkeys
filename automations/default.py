@@ -4,7 +4,7 @@ from typing import Dict, Any, List
 
 from codemonkeys.composables.committer import Committer
 from codemonkeys.composables.file_iterator import FileIterator
-from codemonkeys.base_entities.automation_class import Automation
+from codemonkeys.base_entities.automation import Automation
 from codemonkeys.composables.output_checker import OutputChecker
 from codemonkeys.composables.output_path_resolver import OutputPathResolver
 from codemonkeys.utils.file_ops import get_file_contents, file_exists, write_file_contents
@@ -24,7 +24,7 @@ class Default(Automation):
     def __init__(self, monk_args: argparse.Namespace, named_args: Dict[str, Any], unnamed_args: List[str]):
         super().__init__(monk_args, named_args, unnamed_args)
 
-    def run(self):
+    def run(self) -> None:
         mc = self.monkey_config
         # replace cop-syntax file contents references
         mc.cop_paths()
@@ -53,6 +53,7 @@ class Default(Automation):
         file_iterator = (FileIterator()
                          .set_token_count_model(mc.MAIN_MODEL, mc.MAIN_TEMP, mc.FILE_SELECT_MAX_TOKENS)
                          .set_file_types_included(mc.FILE_TYPES_INCLUDED)
+                         .set_filepath_match_include(mc.FILEPATH_MATCH_INCLUDE)
                          .set_filepath_match_exclude(mc.FILEPATH_MATCH_EXCLUDE)
                          .set_work_path(mc.WORK_PATH)
                          .filter_files())

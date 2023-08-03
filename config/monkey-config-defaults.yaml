@@ -23,7 +23,7 @@ WORK_PATH: "~/local-git/codemonkeys/codemonkeys"
 FILE_TYPES_INCLUDED: ".py"
 FILEPATH_MATCH_INCLUDE: null
 FILEPATH_MATCH_EXCLUDE: "help,__,defs.py"
-FILE_SELECT_MAX_TOKENS: 2000
+FILE_SELECT_MAX_TOKENS: 3000
 
 
 # Main Prompts
@@ -33,7 +33,7 @@ OUTPUT_EXAMPLE_PROMPT: "Limit your output strictly to the contents of the file, 
 
 # Context / Summary
 # Note: Insert un-summarized context files into PROMPTs with {cop:<filepath>}
-CONTEXT_FILE_PATH: "ROOT_PATH/stor/context/context-file.txt"
+CONTEXT_FILE_PATH: null
 CONTEXT_SUMMARY_PROMPT: null
 
 # Output Checks
@@ -70,6 +70,6 @@ SUMMARY_TEMP: 1.0
 OUTPUT_CHECK_TEMP: .7
 
 # Max Tokens
-MAIN_MAX_TOKENS: 4000
-SUMMARY_MAX_TOKENS: 4000
-OUTPUT_CHECK_MAX_TOKENS: 2000
+MAIN_MAX_TOKENS: 5000
+SUMMARY_MAX_TOKENS: 5000
+OUTPUT_CHECK_MAX_TOKENS: 3000

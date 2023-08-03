@@ -4,10 +4,15 @@ import re
 from dataclasses import dataclass
 
 from codemonkeys.config.yaml_helpers import get_monkey_config_defaults
+from codemonkeys.defs import MONKEYS_PATH
 from codemonkeys.utils.monk.theme_functions import print_t
 from codemonkeys.utils.monkey_config.monkey_config_validations import is_prompt_key
-from codemonkeys.defs import MONKEYS_PATH
-from config.framework.env_class import Env
+
+try:
+    from config.framework.env import Env
+except ImportError:
+    print_t('Could not import user Env class from config.framework.env. Using default Env class.', 'warning')
+    from codemonkeys.config.env import Env
 
 
 def insert_cop_file_contents(value: str) -> str:
@@ -43,7 +48,7 @@ class MonkeyConfig:
     MAIN_PROMPT: Optional[str] = field(default=None)
     MAIN_PROMPT_ULTIMATUM: Optional[str] = field(default=None)
     OUTPUT_EXAMPLE_PROMPT: Optional[str] = field(default=None)
-    CONTEXT_FILE_PATH: Optional[str] = field(default=None)
+    CONTEXT_FILE_PATH: Optional[NoneType] = field(default=None)
     CONTEXT_SUMMARY_PROMPT: Optional[NoneType] = field(default=None)
     OUTPUT_CHECK_PROMPT: Optional[NoneType] = field(default=None)
     OUTPUT_TRIES: Optional[int] = field(default=None)
@@ -92,6 +97,7 @@ class MonkeyConfig:
         self.OUTPUT_FILENAME_APPEND = validate_str('OUTPUT_FILENAME_APPEND', self.OUTPUT_FILENAME_APPEND)
         self.OUTPUT_REMOVE_STRINGS = validate_str('OUTPUT_REMOVE_STRINGS', self.OUTPUT_REMOVE_STRINGS)
         self.SKIP_EXISTING_OUTPUT_FILES = validate_bool('SKIP_EXISTING_OUTPUT_FILES', self.SKIP_EXISTING_OUTPUT_FILES)
+        self.OUTPUT_SPLIT_PATH = validate_path('OUTPUT_SPLIT_PATH', self.OUTPUT_SPLIT_PATH)
         self.OUTPUT_SPLIT_TAG = validate_str('OUTPUT_SPLIT_TAG', self.OUTPUT_SPLIT_TAG)
         self.STATIC_COMMIT_MESSAGE = validate_str('STATIC_COMMIT_MESSAGE', self.STATIC_COMMIT_MESSAGE)
         self.MAIN_MODEL = validate_str('MAIN_MODEL', self.MAIN_MODEL)
@@ -118,8 +124,8 @@ class MonkeyConfig:
                 raise FileNotFoundError(f"Monkey configuration file {monkey_path} not found.")
 
             monkey_dict = read_yaml_file(monkey_path, ruamel=True)
-            monkey_dict = cls.filter_config_values(monkey_dict)
-            monkey_dict = cls.apply_defaults(monkey_dict)
+            monkey_dict = cls._filter_config_values(monkey_dict)
+            monkey_dict = cls._apply_defaults(monkey_dict)
 
             cls._instance = MonkeyConfig(**monkey_dict)
 
@@ -131,8 +137,8 @@ class MonkeyConfig:
         Validate the provided dictionary with MonkeyConfig and return it.
         """
 
-        data = cls.filter_config_values(data)
-        data = cls.apply_defaults(data)
+        data = cls._filter_config_values(data)
+        data = cls._apply_defaults(data)
 
         # Create an instance of MonkeyConfig to perform validation
         try:
@@ -147,7 +153,7 @@ class MonkeyConfig:
         return data
 
     @classmethod
-    def filter_config_values(cls, config_values: dict) -> dict:
+    def _filter_config_values(cls, config_values: dict) -> dict:
         # Get dictionary of MonkeyConfig properties
         config_properties = {f.name for f in dataclasses.fields(cls)}
         config_properties.remove('env')
@@ -158,7 +164,7 @@ class MonkeyConfig:
         return config_values
 
     @classmethod
-    def apply_defaults(cls, config_values: dict) -> dict:
+    def _apply_defaults(cls, config_values: dict) -> dict:
         """
         Apply default values to the provided dictionary with MonkeyConfig and return it.
         If a value is set to None, it will be maintained as None.
