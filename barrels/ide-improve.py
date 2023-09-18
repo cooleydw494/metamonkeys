@@ -1,4 +1,4 @@
-from codemonkeys.base_entities.barrel import Barrel
+from codemonkeys.entities.barrel import Barrel
 from codemonkeys.utils.monk.theme_functions import print_t
 
 

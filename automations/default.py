@@ -4,7 +4,7 @@ from typing import Dict, Any, List
 
 from codemonkeys.composables.committer import Committer
 from codemonkeys.composables.file_iterator import FileIterator
-from codemonkeys.base_entities.automation import Automation
+from codemonkeys.entities.automation import Automation
 from codemonkeys.composables.output_checker import OutputChecker
 from codemonkeys.composables.output_path_resolver import OutputPathResolver
 from codemonkeys.utils.file_ops import get_file_contents, file_exists, write_file_contents
