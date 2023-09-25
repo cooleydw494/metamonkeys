@@ -1,15 +1,11 @@
 import os
 from dataclasses import dataclass
 
-from dotenv import load_dotenv
-
-from codemonkeys.defs import ROOT_PATH
-
-load_dotenv(os.path.join(ROOT_PATH or '.', '.env'))
+from codemonkeys.config.env import Env as CMEnv
 
 
 @dataclass
-class Env:
+class Env(CMEnv):
     """
     The Env class provides easy dot notation access to .env vars.
 
@@ -17,22 +13,7 @@ class Env:
     This section is automatically re-generated each time you run a `monk` command.
     """
 
-    _instance = None
-
     # [DEFINE_ENV_PROPS_START]
     OPENAI_API_KEY: str = os.getenv('OPENAI_API_KEY')
     CUSTOM_PROP: str = os.getenv('CUSTOM_PROP')
-    NEW_PROP: int = os.getenv('NEW_PROP')
     # [DEFINE_ENV_PROPS_END]
-
-    @classmethod
-    def get(cls) -> 'Env':
-        """
-        Get the instance of the Env class, or create one if it doesn't exist.
-
-        :return: Singleton instance of the Env class
-        """
-        if Env._instance is None:
-            Env._instance = Env()
-
-        return Env._instance
