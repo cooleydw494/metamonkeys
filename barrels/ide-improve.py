@@ -12,5 +12,5 @@ class IdeImprove(Barrel):
          .with_monkey('signature-monkey')
          .run_automation('default')
 
-         .with_monkey('ide-documentation-monkey')
+         .with_monkey('ide-documentation.yaml-monkey')
          .run_automation('default'))

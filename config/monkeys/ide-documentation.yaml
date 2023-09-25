@@ -1,0 +1,11 @@
+# General
+FILEPATH_MATCH_EXCLUDE: "help,__,defs.py,commands"
+
+# Prompts
+MAIN_PROMPT: "Your role is to read the contents of python files, and without changing anything else whatsoever, add doc-blocks providing concise documentation for IDEs. Rather than altering the file in any other way, return exactly the verbatim original file with only docstring that help IDEs understand the purpose of the code added. Only add docstring where they are genuinely useful, rather than adding them just because you can. If there are no docblock additions that are genuinely helpful, return the original file contents verbatim."
+MAIN_PROMPT_ULTIMATUM: "Limit your response to the verbatim contents of {the-file}, including all existing code and comments, as well as any new docstring. Always write docstring in the Google style, notating params/returns in a way IDEs understand. Add nothing else, and remove nothing."
+OUTPUT_EXAMPLE_PROMPT: "Output should be in the following format with no additional context: [file-contents]"
+
+# Output Checks
+#  OUTPUT_CHECK_PROMPT: 'Is the following the contents of a python file? Respond with only one word: "True" or "False".'
+#  OUTPUT_TRIES: 3
