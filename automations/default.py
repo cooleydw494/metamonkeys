@@ -1,17 +1,17 @@
-import argparse
 import os
 from typing import Dict, Any, List
 
+from pandas.io.common import file_exists
+
 from codemonkeys.composables.committer import Committer
 from codemonkeys.composables.file_iterator import FileIterator
-from codemonkeys.entities.automation import Automation
+from codemonkeys.composables.file_prompter import FilePrompter
 from codemonkeys.composables.output_checker import OutputChecker
 from codemonkeys.composables.output_path_resolver import OutputPathResolver
+from codemonkeys.composables.summarizer import Summarizer
+from codemonkeys.entities.automation import Automation
 from codemonkeys.utils.file_ops import get_file_contents, write_file_contents
 from codemonkeys.utils.monk.theme_functions import print_t
-from codemonkeys.composables.file_prompter import FilePrompter
-from codemonkeys.composables.summarizer import Summarizer
-from pandas.io.common import file_exists
 
 
 class Default(Automation):
@@ -22,8 +22,8 @@ class Default(Automation):
         'OUTPUT_CHECK_PROMPT': ['OUTPUT_TRIES'],
     }
 
-    def __init__(self, monk_args: argparse.Namespace, named_args: Dict[str, Any], unnamed_args: List[str]):
-        super().__init__(monk_args, named_args, unnamed_args)
+    def __init__(self, named_args: Dict[str, Any], unnamed_args: List[str]):
+        super().__init__(named_args, unnamed_args)
 
     def run(self) -> None:
         mc = self.monkey_config
