@@ -1,5 +1,5 @@
 import os
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 
 from pandas.io.common import file_exists
 
@@ -13,24 +13,18 @@ from codemonkeys.entities.automation import Automation
 from codemonkeys.utils.file_ops import get_file_contents, write_file_contents
 from codemonkeys.utils.monk.theme_functions import print_t
 
+from config.framework.monkey_config import MonkeyConfig
+
 
 class Default(Automation):
-    required_config_keys = ['MAIN_PROMPT']
 
-    # TODO: implement this in base class
-    required_config_keys_if = {
-        'OUTPUT_CHECK_PROMPT': ['OUTPUT_TRIES'],
-    }
-
-    def __init__(self, named_args: Dict[str, Any], unnamed_args: List[str]):
-        super().__init__(named_args, unnamed_args)
+    def __init__(self, named_args: Dict[str, Any], unnamed_args: List[str], monkey_config: Optional[MonkeyConfig] = None):
+        super().__init__(named_args, unnamed_args, monkey_config)
 
     def run(self) -> None:
         mc = self.monkey_config
-        # replace cop-syntax file contents references
-        mc.cop_paths()
 
-        # Prepare summarized or unsummarized _context
+        # Prepare summarized or unsummarized context
         if mc.CONTEXT_FILE_PATH is None:
             context = ''
         elif mc.CONTEXT_SUMMARY_PROMPT is not None:
