@@ -13,16 +13,16 @@ from codemonkeys.entities.automation import Automation
 from codemonkeys.utils.file_ops import get_file_contents, write_file_contents
 from codemonkeys.utils.monk.theme_functions import print_t
 
-from config.framework.monkey_config import MonkeyConfig
+from config.monkeys.monkey import Monkey
 
 
 class Default(Automation):
 
-    def __init__(self, named_args: Dict[str, Any], unnamed_args: List[str], monkey_config: Optional[MonkeyConfig] = None):
-        super().__init__(named_args, unnamed_args, monkey_config)
+    def __init__(self, named_args: Dict[str, Any], unnamed_args: List[str], monkey: Optional[Monkey] = None):
+        super().__init__(named_args, unnamed_args, monkey)
 
     def run(self) -> None:
-        mc = self.monkey_config
+        mc = self.get_monkey()
 
         # Prepare summarized or unsummarized context
         if mc.CONTEXT_FILE_PATH is None:

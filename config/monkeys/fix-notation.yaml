@@ -1,5 +1,5 @@
 # General
-FILEPATH_MATCH_INCLUDE: "monkey_config,yaml_helpers.py"
+FILEPATH_MATCH_INCLUDE: "monkey,yaml_helpers.py"
 #  FILEPATH_MATCH_EXCLUDE: "help,__,defs.py,commands,example-automation.py,add_monkey_input_prompts,theme.py"
 
 # Context

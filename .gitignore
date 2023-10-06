@@ -2,11 +2,11 @@
 .env
 .env-backup
 
-# CodeMonkey generated files (some are tracked though, like default generated monkey configs)
+# CodeMonkey generated files (some are tracked though, like default generated Monkeys)
 /stor/temp/*
 TODO.md
 
-# Generated Monkey Configs are ignored
+# Generated Monkeys are ignored
 /stor/temp/monkeys/*
 
 # Python artifacts
