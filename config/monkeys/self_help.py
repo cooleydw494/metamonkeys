@@ -1,18 +1,18 @@
 from dataclasses import dataclass
 
-from config.monkeys.monkey import OStr, OInt, OFloat, OBool, Monkey
+from config.monkeys.monkey import OStr, Monkey
 
 
 @dataclass
 class SelfHelp(Monkey):
 
     # General
-    WORK_PATH: OStr = "~/local-git/codemonkeys/codemonkeys/commands"
-    FILEPATH_MATCH_EXCLUDE: OStr = ".config,.md,.git,help,__,defs.py,__init__.py"
-    FILE_SELECT_MAX_TOKENS: OInt = 6000
+    WORK_PATH: str = "~/local-git/codemonkeys/codemonkeys/commands"
+    FILEPATH_MATCH_EXCLUDE: tuple = ('.config', '.md', '.git', 'help', '__', 'defs.py')
+    FILE_SELECT_MAX_TOKENS: int = 6000
 
     # Main Prompts
-    MAIN_PROMPT: OStr = \
+    MAIN_PROMPT: str = \
         ('Write a python script that prints an appealing summary of {the-file} and its usage via `monk {the-file}`, '
          'in the style of documentation for a CLI command. Rather than writing a script using similar functionality '
          'as {the-file}, use the provided monk command context and print_t function to generate a script that prints '
@@ -31,8 +31,8 @@ class SelfHelp(Monkey):
 
     # Output Checks
     OUTPUT_CHECK_PROMPT: OStr = None
-    OUTPUT_TRIES: OInt = 1
+    OUTPUT_TRIES: int = 1
 
     # Output
-    OUTPUT_PATH: OStr = "~/local-git/codemonkeys/codemonkeys/help/commands"
-    SKIP_EXISTING_OUTPUT_FILES = True
+    OUTPUT_PATH: str = "~/local-git/codemonkeys/codemonkeys/help/commands"
+    SKIP_EXISTING_OUTPUT_FILES: bool = True
