@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 
-from codemonkeys.config.monkey import OStr, Monkey as BaseMonkey
+from codemonkeys.config.monkey import Monkey as BaseMonkey
+from codemonkeys.types import OStr
 
 
 @dataclass
