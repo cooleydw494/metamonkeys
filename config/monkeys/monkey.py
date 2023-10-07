@@ -1,11 +1,11 @@
 from dataclasses import dataclass
 
-from codemonkeys.config.monkey import Monkey as BaseMonkey
+from codemonkeys.config.monkey import Monkey as Base
 from codemonkeys.types import OStr
 
 
 @dataclass
-class Monkey(BaseMonkey):
+class Monkey(Base):
 
     # General
     WORK_PATH: str = "~/local-git/codemonkeys/codemonkeys"
