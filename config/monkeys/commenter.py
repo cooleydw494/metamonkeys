@@ -1,5 +1,3 @@
-The python class for the 'commenter' configuration, based on the 'SelfHelp' would look like this:
-
 from dataclasses import dataclass
 
 from config.monkeys.monkey import OStr, Monkey
@@ -22,19 +20,19 @@ class Commenter(Monkey):
          "adding/altering comments, return the original file verbatim.")
 
     MAIN_PROMPT_ULTIMATUM: OStr = \
-        "Limit your response to the verbatim contents of {the-file}, including all existing code and comments, as well as any new or altered comments you add. Do not add comments that are not genuinely helpful."
+        ("Limit your response to the verbatim contents of {the-file}, including all existing code and comments, "
+         "as well as any new or altered comments you add. Do not add comments that are not genuinely helpful.")
 
     OUTPUT_EXAMPLE_PROMPT: OStr = \
-        "Limit your output strictly to the updated contents of the file, including nothing else, like this: [complete contents of file]"
+        ("Limit your output strictly to the updated contents of the file, including nothing else, like this: [complete "
+         "contents of file]")
 
     # Output Checks
     OUTPUT_CHECK_PROMPT: OStr = \
-        'Examine the following output and determine if it is limited to the contents of a commented python file. Respond with only one word: "True" or "False".'
+        ('Examine the following output and determine if it is limited to the contents of a commented python file. '
+         'Respond with only one word: "True" or "False".')
     OUTPUT_TRIES: int = 3
 
     # Output
     OUTPUT_PATH: str = "~/local-git/codemonkeys/codemonkeys/commenter/commands"
     SKIP_EXISTING_OUTPUT_FILES: bool = True
-```
-
-This includes the same general configuration as the 'SelfHelp' class, with modified prompt and output check configurations as per the 'commenter' yaml file. Also, we replace 'help' with 'commenter' in the General configurations.

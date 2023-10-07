@@ -1,5 +1,4 @@
 from codemonkeys.entities.barrel import Barrel
-from codemonkeys.utils.monk.theme_functions import print_t
 
 
 class IdeImprove(Barrel):
@@ -9,8 +8,8 @@ class IdeImprove(Barrel):
         (self
 
          # Load a Monkey (omit name to prompt user)
-         .with_monkey('signature-monkey')
+         .with_monkey('signature')
          .run_automation('default')
 
-         .with_monkey('ide-documentation.yaml-monkey')
+         .with_monkey('ide_documentation')
          .run_automation('default'))
