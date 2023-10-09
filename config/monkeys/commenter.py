@@ -6,10 +6,10 @@ from config.monkeys.monkey import OStr, Monkey
 @dataclass
 class Commenter(Monkey):
 
-    # General
+    # File Iteration
     WORK_PATH: str = "~/local-git/codemonkeys/codemonkeys/commands"
-    FILEPATH_MATCH_EXCLUDE: tuple = ('.config', '.md', '.git', 'commenter', '__', 'defs.py')
-    FILE_SELECT_MAX_TOKENS: int = 6000
+    PATH_MATCH_EXCLUDE: tuple = ('.config', '.md', '.git', 'commenter', '__', 'defs.py')
+    FILTER_MAX_TOKENS: int = 6000
 
     # Prompts
     MAIN_PROMPT: str = \

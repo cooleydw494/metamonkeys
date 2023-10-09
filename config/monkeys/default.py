@@ -4,12 +4,12 @@ from config.monkeys.monkey import OStr, Monkey
 
 @dataclass
 class NewMonkeyConfig(Monkey):
-    # General
+    # File Iteration
     WORK_PATH: str = "ROOT_PATH/stor/work_path"
-    FILE_TYPES_INCLUDED: str = ".js,.vue,.php"
-    FILEPATH_MATCH_INCLUDE: OStr = None
-    FILEPATH_MATCH_EXCLUDE: str = ".config,.md,.git,migrations,vite,webpack,.txt"
-    FILE_SELECT_MAX_TOKENS: int = 3000
+    INCLUDE_EXTS: str = ".js,.vue,.php"
+    PATH_MATCH_INCLUDE: OStr = None
+    PATH_MATCH_EXCLUDE: str = ".config,.md,.git,migrations,vite,webpack,.txt"
+    FILTER_MAX_TOKENS: int = 3000
 
     # Main Prompts
     MAIN_PROMPT: str = 'Please generate code for the following task...'
@@ -22,7 +22,6 @@ class NewMonkeyConfig(Monkey):
     OUTPUT_PATH: str = "ROOT_PATH/stor/output"
     OUTPUT_EXT: str = ".py"
     OUTPUT_FILENAME_APPEND: str = ""
-    OUTPUT_REMOVE_STRINGS: str = "```,```python"
     SKIP_EXISTING_OUTPUT_FILES: bool = True
 
     # Output Check

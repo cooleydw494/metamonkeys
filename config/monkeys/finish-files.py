@@ -6,9 +6,9 @@ from config.monkeys.self_help import SelfHelp
 @dataclass
 class FinishFiles(SelfHelp):
 
-    # General
-    FILE_TYPES_INCLUDED: str = ".py"
-    FILEPATH_MATCH_EXCLUDE: tuple = ('help.py', '__init__.py')
+    # File Iteration
+    INCLUDE_EXTS: str = ".py"
+    PATH_MATCH_EXCLUDE: tuple = ('help.py', '__init__.py')
 
     # Main Prompts
     MAIN_PROMPT: str = \
@@ -29,7 +29,6 @@ class FinishFiles(SelfHelp):
     # Output
     OUTPUT_EXT: str = ''
     OUTPUT_FILENAME_APPEND: str = ''
-    OUTPUT_REMOVE_STRINGS: str = "```,```python,python"
     SKIP_EXISTING_OUTPUT_FILES: bool = False
 
     # Models

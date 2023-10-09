@@ -5,10 +5,10 @@ from config.monkeys.monkey import Monkey, OStr
 
 @dataclass
 class IDEDocumentation(Monkey):
-    # General
+    # File Iteration
     WORK_PATH: str = '~/local-git/codemonkeys/codemonkeys/commands'
-    FILEPATH_MATCH_EXCLUDE: tuple = ('help', '__', 'defs.py', 'commands')
-    FILE_SELECT_MAX_TOKENS: int = 6000
+    PATH_MATCH_EXCLUDE: tuple = ('help', '__', 'defs.py', 'commands')
+    FILTER_MAX_TOKENS: int = 6000
 
     # Main Prompts
     MAIN_PROMPT: str = (

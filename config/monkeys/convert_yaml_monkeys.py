@@ -9,32 +9,27 @@ from codemonkeys.types import OStr
 @dataclass
 class ConvertYamlMonkeys(Monkey):
 
-    # General
+    # File Iteration
     WORK_PATH: str = MONKEYS_PATH
-    FILE_TYPES_INCLUDED: tuple = ('.yaml')
+    INCLUDE_EXTS: tuple = ('.py')
 
     # Main Prompts
     MAIN_PROMPT: str = \
-        ("Please convert the following yaml 'monkey' configuration file to the new format, which is a python class "
-         "using inheritance for defaults. Use the SelfHelp class as an example, understanding that different configs "
-         "will require different properties to be overridden.")
+        ("Please convert the following python 'monkey' class files to the new format, which is a yaml config file."
+         " The yaml configs should contain all of the declared properties of the python class, formatted well.")
 
-    MAIN_PROMPT_ULTIMATUM: OStr = "Limit your response to the contents of a python class file, and nothing else."
+    MAIN_PROMPT_ULTIMATUM: OStr = "Limit your response to the contents of a yaml file, and nothing else."
     OUTPUT_EXAMPLE_PROMPT: OStr = "Limit your output to file contents, like: ```<new file contents>```."
 
     # Context / Summary
-    CONTEXT_FILE_PATH: OStr = f'{MONKEYS_PATH}/self_help.py'
+    # CONTEXT_FILE_PATH: OStr = f'{MONKEYS_PATH}/self_help.py'
 
     # Output Checks
-    OUTPUT_CHECK_PROMPT: OStr = \
-        'Examine the following output and determine if it contains the contents of a python script.' \
-        ' Respond with only one word: "True" or "False".'
-    OUTPUT_TRIES: int = 3
+    FIX_OUTPUT_PROMPT: OStr = 'The finalized output should include nothing more than the contents of a yaml file.'
 
     # Output
     OUTPUT_PATH: str = MONKEYS_PATH
-    OUTPUT_EXT: OStr = '.py'
-    OUTPUT_REMOVE_STRINGS: tuple = ('```python\n', '```python,```')
+    OUTPUT_EXT: OStr = '.yaml'
     SKIP_EXISTING_OUTPUT_FILES: bool = True
 
     # Models
