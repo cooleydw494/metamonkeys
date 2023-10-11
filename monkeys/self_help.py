@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from config.monkeys.monkey import OStr, Monkey
+from monkeys.monkey import OStr, Monkey
 
 
 @dataclass
@@ -8,7 +8,7 @@ class SelfHelp(Monkey):
 
     # File Iteration
     WORK_PATH: str = "~/local-git/codemonkeys/codemonkeys/commands"
-    PATH_MATCH_EXCLUDE: tuple = ('.config', '.md', '.git', 'help', '__', 'defs.py')
+    FILEPATH_MATCH_EXCLUDE: tuple = ('.config', '.md', '.git', 'help', '__', 'defs.py')
     FILTER_MAX_TOKENS: int = 6000
 
     # Main Prompts
@@ -29,7 +29,7 @@ class SelfHelp(Monkey):
     CONTEXT_FILE_PATH: OStr = None
     CONTEXT_SUMMARY_PROMPT: OStr = None
 
-    # Output Checks
+    # Output Fixing
     OUTPUT_CHECK_PROMPT: OStr = None
     OUTPUT_TRIES: int = 1
 

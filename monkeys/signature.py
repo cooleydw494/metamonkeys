@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from config.monkeys.monkey import OStr, Monkey
+from monkeys.monkey import OStr, Monkey
 
 
 @dataclass
@@ -20,7 +20,7 @@ class Signature(Monkey):
     OUTPUT_EXAMPLE_PROMPT: OStr = \
         "Output should be in the following format with no additional context: [file-contents]"
 
-    # Output Checks
+    # Output Fixing
     OUTPUT_CHECK_PROMPT: OStr = ('Is the following the contents of a python file? Respond with only one word: "True" '
                                  'or "False".')
     OUTPUT_TRIES: int = 3

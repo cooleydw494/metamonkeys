@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from config.monkeys.monkey import OStr, Monkey
+from monkeys.monkey import OStr, Monkey
 
 
 @dataclass
@@ -8,7 +8,7 @@ class Commenter(Monkey):
 
     # File Iteration
     WORK_PATH: str = "~/local-git/codemonkeys/codemonkeys/commands"
-    PATH_MATCH_EXCLUDE: tuple = ('.config', '.md', '.git', 'commenter', '__', 'defs.py')
+    FILEPATH_MATCH_EXCLUDE: tuple = ('.config', '.md', '.git', 'commenter', '__', 'defs.py')
     FILTER_MAX_TOKENS: int = 6000
 
     # Prompts
@@ -27,12 +27,12 @@ class Commenter(Monkey):
         ("Limit your output strictly to the updated contents of the file, including nothing else, like this: [complete "
          "contents of file]")
 
-    # Output Checks
+    # Output Fixing
     OUTPUT_CHECK_PROMPT: OStr = \
         ('Examine the following output and determine if it is limited to the contents of a commented python file. '
          'Respond with only one word: "True" or "False".')
     OUTPUT_TRIES: int = 3
 
     # Output
-    OUTPUT_PATH: str = "~/local-git/codemonkeys/codemonkeys/commenter/commands"
+    OUTPUT_PATH: str = "~/local-git/codemonkeys/codemonkeys/commands"
     SKIP_EXISTING_OUTPUT_FILES: bool = True

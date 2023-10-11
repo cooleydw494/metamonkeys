@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from codemonkeys.config.monkey import Monkey as Base
+from codemonkeys.entities.monkey import Monkey as Base
 from codemonkeys.types import OStr
 
 
@@ -10,8 +10,8 @@ class Monkey(Base):
     # File Iteration
     WORK_PATH: str = "~/local-git/codemonkeys/codemonkeys"
     INCLUDE_EXTS: tuple = ('.py')
-    PATH_MATCH_INCLUDE: tuple = ()
-    PATH_MATCH_EXCLUDE: tuple = ('.config', '.md', '.git', 'help', '__', 'defs.py')
+    FILEPATH_MATCH_INCLUDE: tuple = ()
+    FILEPATH_MATCH_EXCLUDE: tuple = ('.config', '.md', '.git', 'help', '__', 'defs.py')
     FILTER_MAX_TOKENS: int = 3000
 
     # Main Prompts
@@ -23,7 +23,7 @@ class Monkey(Base):
     CONTEXT_FILE_PATH: OStr = None
     CONTEXT_SUMMARY_PROMPT: OStr = None
 
-    # Output Checks
+    # Output Fixing
     FIX_OUTPUT_PROMPT: OStr = 'The finalized output should include nothing more than the contents of a Python file.'
 
     # Output

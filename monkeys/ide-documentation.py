@@ -1,13 +1,13 @@
 from dataclasses import dataclass
 
-from config.monkeys.monkey import Monkey, OStr
+from monkeys.monkey import Monkey, OStr
 
 
 @dataclass
 class IDEDocumentation(Monkey):
     # File Iteration
     WORK_PATH: str = '~/local-git/codemonkeys/codemonkeys/commands'
-    PATH_MATCH_EXCLUDE: tuple = ('help', '__', 'defs.py', 'commands')
+    FILEPATH_MATCH_EXCLUDE: tuple = ('help', '__', 'defs.py', 'commands')
     FILTER_MAX_TOKENS: int = 6000
 
     # Main Prompts
@@ -27,7 +27,7 @@ class IDEDocumentation(Monkey):
     CONTEXT_FILE_PATH: OStr = None
     CONTEXT_SUMMARY_PROMPT: OStr = None
 
-    # Output Checks
+    # Output Fixing
     OUTPUT_CHECK_PROMPT: OStr = None
     OUTPUT_TRIES: int = 1
 

@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from config.monkeys.self_help import SelfHelp
+from monkeys.self_help import SelfHelp
 
 
 @dataclass
@@ -8,7 +8,7 @@ class FinishFiles(SelfHelp):
 
     # File Iteration
     INCLUDE_EXTS: str = ".py"
-    PATH_MATCH_EXCLUDE: tuple = ('help.py', '__init__.py')
+    FILEPATH_MATCH_EXCLUDE: tuple = ('help.py', '__init__.py')
 
     # Main Prompts
     MAIN_PROMPT: str = \
@@ -20,7 +20,7 @@ class FinishFiles(SelfHelp):
     OUTPUT_EXAMPLE_PROMPT: OStr = \
         'Make your output a well-structured and readable python script/module only.'
     
-    # Output Checks
+    # Output Fixing
     OUTPUT_CHECK_PROMPT: OStr = \
         'Examine the following output and determine if it contains the contents of a python script/module only. Respond with only one word: "True" or "False".'
 

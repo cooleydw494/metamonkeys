@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from config.monkeys.monkey import OStr, Monkey
+from monkeys.monkey import OStr, Monkey
 
 
 @dataclass
@@ -7,8 +7,8 @@ class NewMonkeyConfig(Monkey):
     # File Iteration
     WORK_PATH: str = "ROOT_PATH/stor/work_path"
     INCLUDE_EXTS: str = ".js,.vue,.php"
-    PATH_MATCH_INCLUDE: OStr = None
-    PATH_MATCH_EXCLUDE: str = ".config,.md,.git,migrations,vite,webpack,.txt"
+    FILEPATH_MATCH_INCLUDE: OStr = None
+    FILEPATH_MATCH_EXCLUDE: str = ".config,.md,.git,migrations,vite,webpack,.txt"
     FILTER_MAX_TOKENS: int = 3000
 
     # Main Prompts

@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 from codemonkeys.defs import MONKEYS_PATH
 
-from config.monkeys.monkey import Monkey
+from monkeys.monkey import Monkey
 from codemonkeys.types import OStr
 
 
@@ -24,7 +24,7 @@ class ConvertYamlMonkeys(Monkey):
     # Context / Summary
     # CONTEXT_FILE_PATH: OStr = f'{MONKEYS_PATH}/self_help.py'
 
-    # Output Checks
+    # Output Fixing
     FIX_OUTPUT_PROMPT: OStr = 'The finalized output should include nothing more than the contents of a yaml file.'
 
     # Output

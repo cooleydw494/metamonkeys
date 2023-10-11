@@ -1,0 +1,14 @@
+/twitter_poster
+
+    .env: Twitter API details
+
+    /modules
+        twitter_api.py: create_post(content), get_post_analytics(id)
+        analyze_posts.py: analyze(start, end)
+
+    /scripts
+        daily_post.py: get_todays_post, make_daily_post
+
+    /db
+        db.sqlite: id,content,send_date,was_sent
+        db_methods.py: get_post(date), index_posts(start, end)
