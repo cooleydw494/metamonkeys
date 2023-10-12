@@ -10,9 +10,8 @@ class Scaffold(Monkey):
 
     # Main Prompts
     MAIN_PROMPT: str = ("Review the following architectural documentation for a codebase, and write the best "
-                        "implementation of it that you can, paying close attention to other usable elements declared "
-                        "in the architecture overview such as classes, functions/methods, and anything else that can "
-                        "inform your implementation.")
+                        "implementation of the specified file as possible, with close attention to other usable"
+                        " elements declared in the architecture overview (classes, functions, etc).")
 
     # Context / Summary
     CONTEXT_FILE_PATH: str = f"{STOR_PATH}/context/scaffold.txt"
@@ -23,7 +22,8 @@ class Scaffold(Monkey):
                                    "with the project root dir located within ~/local-git.")
 
     # Output
-    SKIP_EXISTING_OUTPUT_FILES = False
+    SKIP_EXISTING_OUTPUT_FILES = True
+    ALLOW_MULTIPLE_FILES_PER_PROMPT = False
 
     # Git
     GPT_GIT_COMMITS: bool = False

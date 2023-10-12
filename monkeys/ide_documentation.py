@@ -4,9 +4,9 @@ from monkeys.monkey import Monkey, OStr
 
 
 @dataclass
-class IDEDocumentation(Monkey):
+class IdeDocumentation(Monkey):
     # File Iteration
-    WORK_PATH: str = '~/local-git/codemonkeys/codemonkeys/commands'
+    WORK_PATH: str = '~/local-git/twitter_poster'
     FILEPATH_MATCH_EXCLUDE: tuple = ('help', '__', 'defs.py', 'commands')
     FILTER_MAX_TOKENS: int = 6000
 
@@ -32,5 +32,6 @@ class IDEDocumentation(Monkey):
     OUTPUT_TRIES: int = 1
 
     # Output
-    OUTPUT_PATH: str = '~/local-git/codemonkeys/codemonkeys/help/commands'
-    SKIP_EXISTING_OUTPUT_FILES: bool = True
+    OUTPUT_PATH: str = '~/local-git/twitter_poster'
+    SKIP_EXISTING_OUTPUT_FILES: bool = False
+    RELATIVE_OUTPUT_PATHS = True
