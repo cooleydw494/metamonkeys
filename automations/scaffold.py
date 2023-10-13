@@ -39,7 +39,7 @@ class Scaffold(Automation):
         # If enabled, build a Committer for GPT Git Commits
         committer = None
         if m.GPT_GIT_COMMITS:
-            committer = (Committer(repo_path=m.OUTPUT_PATH)
+            committer = (Committer(repo_path=m.GIT_REPO_PATH)
                          .model('gpt-3.5-turbo', 0.7, 2000))
 
         # Iterate through filepaths and generate scaffolded files
