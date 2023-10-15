@@ -23,9 +23,7 @@ class Commenter(Monkey):
         ("Limit your response to the verbatim contents of {the-file}, including all existing code and comments, "
          "as well as any new or altered comments you add. Do not add comments that are not genuinely helpful.")
 
-    OUTPUT_EXAMPLE_PROMPT: OStr = \
-        ("Limit your output strictly to the updated contents of the file, including nothing else, like this: [complete "
-         "contents of file]")
+    OUTPUT_PROMPT: str = "Output should be nothing more than the updated file contents."
 
     # Output Fixing
     OUTPUT_CHECK_PROMPT: OStr = \

@@ -17,7 +17,7 @@ class LongForm(Monkey):
     MAIN_PROMPT: str = "Please generate code for the following task..."
     CONTEXT_SUMMARY_PROMPT: str = "Provide a summary of this file..."
     MAIN_PROMPT_ULTIMATUM: OStr = "Limit your response to the full contents of a python script, and nothing else."
-    OUTPUT_EXAMPLE_PROMPT: OStr = "Limit your output strictly to the contents of the file, like this: ```complete contents of file```."
+    OUTPUT_PROMPT: OStr = "Output should be nothing more than the updated file contents."
 
     # Output
     OUTPUT_PATH: str = "ROOT_PATH/stor/output"

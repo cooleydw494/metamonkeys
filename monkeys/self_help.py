@@ -21,7 +21,7 @@ class SelfHelp(Monkey):
     MAIN_PROMPT_ULTIMATUM: OStr = \
         'Return only the contents of a script that prints a helpful summary and usage explanation of {the-file}.'
 
-    OUTPUT_EXAMPLE_PROMPT: OStr = \
+    OUTPUT_PROMPT: OStr = \
         ("Make your output similar to the following, but with as much detail and creativity as necessary to explain "
          "the command: ```{cop:~/local-git/metamonkeys/stor/context/self-help-context-file.py}```.")
 

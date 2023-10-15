@@ -19,13 +19,10 @@ class ConvertYamlMonkeys(Monkey):
          " The yaml configs should contain all of the declared properties of the python class, formatted well.")
 
     MAIN_PROMPT_ULTIMATUM: OStr = "Limit your response to the contents of a yaml file, and nothing else."
-    OUTPUT_EXAMPLE_PROMPT: OStr = "Limit your output to file contents, like: ```<new file contents>```."
+    OUTPUT_PROMPT: OStr = "Output should be nothing more than the updated file contents."
 
     # Context / Summary
     # CONTEXT_FILE_PATH: OStr = f'{MONKEYS_PATH}/self_help.py'
-
-    # Output Fixing
-    FIX_OUTPUT_PROMPT: OStr = 'The finalized output should include nothing more than the contents of a yaml file.'
 
     # Output
     OUTPUT_PATH: str = MONKEYS_PATH

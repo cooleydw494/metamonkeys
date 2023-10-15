@@ -23,7 +23,6 @@ class Scaffold(Monkey):
 
     # Output
     SKIP_EXISTING_OUTPUT_FILES = True
-    ALLOW_MULTIPLE_FILES_PER_PROMPT = False
 
     # Git
     GPT_GIT_COMMITS: bool = False

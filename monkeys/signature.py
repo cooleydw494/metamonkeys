@@ -17,8 +17,7 @@ class Signature(Monkey):
         ("Limit your response to the verbatim contents of {the-file}, including all existing code and comments, "
          "as well as any new type-hinting. Add nothing else, and remove nothing.")
 
-    OUTPUT_EXAMPLE_PROMPT: OStr = \
-        "Output should be in the following format with no additional context: [file-contents]"
+    OUTPUT_PROMPT: OStr = "Output should be nothing more than the updated file contents."
 
     # Output Fixing
     OUTPUT_CHECK_PROMPT: OStr = ('Is the following the contents of a python file? Respond with only one word: "True" '

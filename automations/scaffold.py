@@ -2,13 +2,12 @@ import os
 
 from codemonkeys.defs import content_sep, nl, nl2
 from codemonkeys.funcs.write_file import WriteFile
-from codemonkeys.funcs.write_files import WriteFiles
 from codemonkeys.utils.gpt.gpt_client import GPTClient
 from pandas.io.common import file_exists
 
 from codemonkeys.builders.committer import Committer
 from codemonkeys.entities.automation import Automation
-from codemonkeys.utils.file_ops import get_file_contents
+from codemonkeys.utils.misc.file_ops import get_file_contents
 from codemonkeys.utils.monk.theme_functions import print_t
 
 from codemonkeys.funcs.extract_list import ExtractList
@@ -65,53 +64,24 @@ class Scaffold(Automation):
                                f"implement/write is {file_path} (this is the absolute path for writing).")
             print_t(f"Scaffolding prompt:{nl}{scaffold_prompt}{nl}", "quiet")
 
-            if m.ALLOW_MULTIPLE_FILES_PER_PROMPT:
+            written_file_path = (GPTClient(m.MAIN_MODEL, m.MAIN_TEMP, m.MAIN_MAX_TOKENS)
+                                 .generate(scaffold_prompt, [WriteFile()], 'write_file'))
 
-                written_file_paths = (GPTClient(m.MAIN_MODEL, m.MAIN_TEMP, m.MAIN_MAX_TOKENS)
-                                      .generate(scaffold_prompt, [WriteFiles()], 'write_files'))
+            if written_file_path is None:
+                print_t(
+                    f" No written filepath was returned, seeming to indicate a file was not written. Skipping "
+                    f"file: {file_path}", 'warning')
+                continue
 
-                if len(written_file_paths) == 0:
-                    print_t(
-                        f" No written filepaths were returned, seeming to indicate a file was not written. Skipping "
-                        f"file: {file_path}", 'warning')
-                    continue
+            if written_file_path != file_path:
+                print_t(f" The current file to implement/write was not written: {file_path}.", 'warning')
+                continue
 
-                if file_path not in written_file_paths:
-                    print_t(f" The current file to implement/write was not written: {file_path}.", 'warning')
+            new_content = get_file_contents(file_path) if file_exists(file_path) else ''
 
-                if file_path not in written_file_paths or len(written_file_paths) > 1:
-                    print_t(f"Multiple files were written: {written_file_paths}", 'info')
-                    continue
-
-                new_content = get_file_contents(file_path) if file_exists(file_path) else ''
-
-                # Commit changes if a Committer was configured
-                if committer is not None:
-                    if file_path not in written_file_paths:
-                        committer.message('Updated via CodeMonkeys with unexpected written files.')
-                    elif new_content != '':
-                        committer.message_from_context(old_content, new_content).commit()
-
-            else:
-
-                written_file_path = (GPTClient(m.MAIN_MODEL, m.MAIN_TEMP, m.MAIN_MAX_TOKENS)
-                                     .generate(scaffold_prompt, [WriteFile()], 'write_file'))
-
-                if written_file_path is None:
-                    print_t(
-                        f" No written filepath was returned, seeming to indicate a file was not written. Skipping "
-                        f"file: {file_path}", 'warning')
-                    continue
-
-                if written_file_path != file_path:
-                    print_t(f" The current file to implement/write was not written: {file_path}.", 'warning')
-                    continue
-
-                new_content = get_file_contents(file_path) if file_exists(file_path) else ''
-
-                # Commit changes if a Committer was configured
-                if committer is not None:
-                    if file_path != written_file_path:
-                        committer.message('Updated via CodeMonkeys with unexpected written file.')
-                    elif new_content != '':
-                        committer.message_from_context(old_content, new_content).commit()
+            # Commit changes if a Committer was configured
+            if committer is not None:
+                if file_path != written_file_path:
+                    committer.message('Updated via CodeMonkeys with unexpected written file.')
+                elif new_content != '':
+                    committer.message_from_context(old_content, new_content).commit()

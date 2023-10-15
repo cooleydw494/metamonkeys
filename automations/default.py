@@ -3,11 +3,10 @@ from pandas.io.common import file_exists
 from codemonkeys.builders.committer import Committer
 from codemonkeys.builders.file_iterator import FileIterator
 from codemonkeys.builders.file_prompter import FilePrompter
-from codemonkeys.builders.output_fixer import OutputFixer
 from codemonkeys.builders.output_path_resolver import OutputPathResolver
 from codemonkeys.builders.summarizer import Summarizer
 from codemonkeys.entities.automation import Automation
-from codemonkeys.utils.file_ops import get_file_contents, write_file_contents
+from codemonkeys.utils.misc.file_ops import get_file_contents, write_file_contents
 from codemonkeys.utils.monk.theme_functions import print_t
 
 
@@ -27,13 +26,6 @@ class Default(Automation):
         elif m.CONTEXT_FILE_PATH is not None:
             context = get_file_contents(m.CONTEXT_FILE_PATH)
 
-        # Build an Output Fixer
-        output_fixer = None
-        if m.FIX_OUTPUT_PROMPT is not None:
-            output_fixer = (OutputFixer()
-                            .model(m.FIX_OUTPUT_MODEL, m.FIX_OUTPUT_TEMP, m.FIX_OUTPUT_MAX_TOKENS)
-                            .prompt(m.FIX_OUTPUT_PROMPT))
-
         # Build a FileIterator and filter files
         file_iterator = (FileIterator()
                          .work_path(m.WORK_PATH)
@@ -46,9 +38,10 @@ class Default(Automation):
         # Build a FilePrompter for prompting output on each file
         file_prompter = (FilePrompter()
                          .model(m.MAIN_MODEL, m.MAIN_TEMP, m.MAIN_MAX_TOKENS)
+                         .finalize_output(True)  # hard-coded to use FinalizeOutput Func
                          .main_prompt(m.MAIN_PROMPT)
                          .context(context)
-                         .output_example_prompt(m.OUTPUT_EXAMPLE_PROMPT)
+                         .OUTPUT_PROMPT(m.OUTPUT_PROMPT)
                          .ultimatum_prompt(m.MAIN_PROMPT_ULTIMATUM))
 
         # Build an OutputPathResolve to resolve filepaths for writing
@@ -86,10 +79,6 @@ class Default(Automation):
 
             if new_content is None:
                 continue
-
-            # Fix output if an OutputFixer is configured
-            if output_fixer is not None:
-                new_content = output_fixer.fix(new_content)
 
             # Write output to file
             write_file_contents(output_file_path, new_content)

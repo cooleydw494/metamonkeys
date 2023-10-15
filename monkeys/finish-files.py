@@ -17,8 +17,7 @@ class FinishFiles(SelfHelp):
     MAIN_PROMPT_ULTIMATUM: OStr = \
         'Return only the contents of a script/module that meets the requirements of the description existing within {the-file}.'
 
-    OUTPUT_EXAMPLE_PROMPT: OStr = \
-        'Make your output a well-structured and readable python script/module only.'
+    OUTPUT_PROMPT: str = "Output should be nothing more than the updated file contents."
     
     # Output Fixing
     OUTPUT_CHECK_PROMPT: OStr = \

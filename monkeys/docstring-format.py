@@ -18,10 +18,7 @@ class DocStringFormat(Monkey):
         ('Limit your response to the verbatim contents of {the-file}, including all existing code and comments, '
          'as well as any docstring alterations to comply with the reST style. Add nothing else, and remove nothing.')
 
-    OUTPUT_EXAMPLE_PROMPT: OStr = \
-        ("Output should be in the following format with no additional context: [file-contents]"
-         "Limit your response to the contents of a python class file, and nothing else."
-         "Limit your output to file contents, like: ```<new file contents>```.")
+    OUTPUT_PROMPT: OStr = "Output should be nothing more than the updated file contents."
 
     # Context / Summary
     CONTEXT_FILE_PATH: OStr = None
