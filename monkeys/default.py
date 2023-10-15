@@ -23,17 +23,10 @@ class NewMonkeyConfig(Monkey):
     OUTPUT_FILENAME_APPEND: str = ""
     SKIP_EXISTING_OUTPUT_FILES: bool = True
 
-    # Output Check
-    OUTPUT_CHECK_PROMPT: OStr = ('Examine the following output and determine if it contains the contents of a python '
-                                 'script. Respond with only one word: "True" or "False".')
-    OUTPUT_TRIES: int = 1
-
     # Models
     MAIN_MODEL: int = 4
     SUMMARY_MODEL: int = 4
-    OUTPUT_CHECK_MODEL: int = 3
 
     # Temps
     MAIN_TEMP: float = 1.0
     SUMMARY_TEMP: float = 1.0
-    OUTPUT_CHECK_TEMP: float = 0.5

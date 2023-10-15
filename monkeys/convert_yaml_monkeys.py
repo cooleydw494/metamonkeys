@@ -32,14 +32,11 @@ class ConvertYamlMonkeys(Monkey):
     # Models
     MAIN_MODEL: str = 'gpt-4'
     SUMMARY_MODEL: str = 'gpt-4'
-    OUTPUT_CHECK_MODEL: str = 'gpt-3.5-turbo'
 
     # Temps
     MAIN_TEMP: float = 1.0
     SUMMARY_TEMP: float = 1.0
-    OUTPUT_CHECK_TEMP: float = 0.5
 
     # Max Tokens
     MAIN_MAX_TOKENS: int = 5000
     SUMMARY_MAX_TOKENS: int = 5000
-    OUTPUT_CHECK_MAX_TOKENS: int = 3000

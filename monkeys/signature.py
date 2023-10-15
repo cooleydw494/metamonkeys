@@ -18,8 +18,3 @@ class Signature(Monkey):
          "as well as any new type-hinting. Add nothing else, and remove nothing.")
 
     OUTPUT_PROMPT: OStr = "Output should be nothing more than the updated file contents."
-
-    # Output Fixing
-    OUTPUT_CHECK_PROMPT: OStr = ('Is the following the contents of a python file? Respond with only one word: "True" '
-                                 'or "False".')
-    OUTPUT_TRIES: int = 3

@@ -25,12 +25,6 @@ class Commenter(Monkey):
 
     OUTPUT_PROMPT: str = "Output should be nothing more than the updated file contents."
 
-    # Output Fixing
-    OUTPUT_CHECK_PROMPT: OStr = \
-        ('Examine the following output and determine if it is limited to the contents of a commented python file. '
-         'Respond with only one word: "True" or "False".')
-    OUTPUT_TRIES: int = 3
-
     # Output
     OUTPUT_PATH: str = "~/local-git/codemonkeys/codemonkeys/commands"
     SKIP_EXISTING_OUTPUT_FILES: bool = True

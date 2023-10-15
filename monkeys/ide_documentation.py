@@ -27,10 +27,6 @@ class IdeDocumentation(Monkey):
     CONTEXT_FILE_PATH: OStr = None
     CONTEXT_SUMMARY_PROMPT: OStr = None
 
-    # Output Fixing
-    OUTPUT_CHECK_PROMPT: OStr = None
-    OUTPUT_TRIES: int = 1
-
     # Output
     OUTPUT_PATH: str = '~/local-git/twitter_poster'
     SKIP_EXISTING_OUTPUT_FILES: bool = False

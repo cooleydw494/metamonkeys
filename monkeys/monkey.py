@@ -26,7 +26,7 @@ class Monkey(Base):
     OUTPUT_PATH: str = "~/local-git/codemonkeys/codemonkeys"
     OUTPUT_EXT: OStr = None
     OUTPUT_FILENAME_APPEND: OStr = None
-    SKIP_EXISTING_OUTPUT_FILES: bool = True
+    SKIP_EXISTING_OUTPUT_FILES: bool = False
 
     # Editor
     EDITOR_PROMPT: OStr = None

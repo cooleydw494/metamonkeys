@@ -41,7 +41,7 @@ class Default(Automation):
                          .finalize_output(True)  # hard-coded to use FinalizeOutput Func
                          .main_prompt(m.MAIN_PROMPT)
                          .context(context)
-                         .OUTPUT_PROMPT(m.OUTPUT_PROMPT)
+                         .output_prompt(m.OUTPUT_PROMPT)
                          .ultimatum_prompt(m.MAIN_PROMPT_ULTIMATUM))
 
         # Build an OutputPathResolve to resolve filepaths for writing
