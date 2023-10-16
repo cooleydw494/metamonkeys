@@ -1,38 +1,39 @@
-.env: TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET
+twitter_poster/
 
-requirements.txt: tweepy, pandas, pytz
+  .env: TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET
 
-modules/
-- twitter_api.py
-  - create_post(content: str) -> dict
-  - get_post_analytics(post_id: str) -> dict
-- analyze_posts.py
-  - analyze(start_date: datetime, end_date: datetime) -> dict
-- utils.py
-  - date_to_str(date: datetime) -> str
-  - str_to_date(date_str: str) -> datetime
+  requirements.txt: tweepy, pandas, pytz
 
-scripts/
-- daily_post.py
-  - get_todays_post() -> str
-  - make_daily_post() -> None
-- init_db.py
-  - posts(id, tweet_id, content, send_date, was_sent)
-- cli/ (interactive scripts)
-  - schedule-post.py
-  - list-posts.py
-  - delete-post.py
-  - analyze-posts.py
+  modules/
+  - twitter_api.py
+    - create_post(content: str) -> dict
+    - get_post_analytics(post_id: str) -> dict
+  - analyze_posts.py
+    - analyze(start_date: datetime, end_date: datetime) -> dict
+  - utils.py
+    - date_to_str(date: datetime) -> str
+    - str_to_date(date_str: str) -> datetime
 
-db/
-- db_methods.py
-  - get_post(date: datetime) -> dict
-  - index_posts(start_date: datetime, end_date: datetime) -> List[dict]
+  scripts/
+  - daily_post.py
+    - get_todays_post() -> str
+    - make_daily_post() -> None
+  - init_db.py
+    - posts(id, tweet_id, content, send_date, was_sent)
+  - cli/ (interactive scripts)
+    - schedule-post.py
+    - list-posts.py
+    - delete-post.py
+    - analyze-posts.py
 
-tests/
-- test_twitter_api.py
-- test_analyze_posts.py
-- test_db_methods.py
+  db/
+  - db_methods.py
+    - get_post(date: datetime) -> dict
+    - index_posts(start_date: datetime, end_date: datetime) -> List[dict]
 
-README.md
-.gitignore
+  tests/
+  - test_twitter_api.py
+  - test_analyze_posts.py
+  - test_db_methods.py
+
+  README.md
