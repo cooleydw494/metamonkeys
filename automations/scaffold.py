@@ -41,6 +41,11 @@ class Scaffold(Automation):
             committer = (Committer(repo_path=m.GIT_REPO_PATH)
                          .model('gpt-3.5-turbo', 0.7, 2000))
 
+        # Build a WriteFile Func for prompting file writes
+        # Note: PROJECT_ROOT is particularly important as it verifies no file is written outside of that dir
+        # This is the primary safeguard against accidental file writes that could be destructive
+        write_file_func = WriteFile(skip_existing=m.SKIP_EXISTING_OUTPUT_FILES, base_path=m.PROJECT_ROOT)
+
         # Iterate through filepaths and generate scaffolded files
         while True:
 
@@ -50,8 +55,7 @@ class Scaffold(Automation):
             if files_remaining == 0:
                 print_t("All Filepaths Handled.", 'done')
                 break
-            file_path = file_paths.pop()
-            file_path = os.path.expanduser(file_path)
+            file_path = os.path.expanduser(file_paths.pop())
 
             if m.SKIP_EXISTING_OUTPUT_FILES and file_exists(file_path):
                 print_t(f"Skipping file, output exists at: {file_path}", 'quiet')
@@ -65,7 +69,7 @@ class Scaffold(Automation):
             print_t(f"Scaffolding prompt:{nl}{scaffold_prompt}{nl}", "quiet")
 
             written_file_path = (GPTClient(m.MAIN_MODEL, m.MAIN_TEMP, m.MAIN_MAX_TOKENS)
-                                 .generate(scaffold_prompt, [WriteFile()], 'write_file'))
+                                 .generate(scaffold_prompt, [write_file_func], 'write_file'))
 
             if written_file_path is None:
                 print_t(

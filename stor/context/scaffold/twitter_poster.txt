@@ -1,8 +1,6 @@
-/twitter_poster
-
 .env: TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET
 
-requirements.txt: tweepy, sqlite3, pandas, pytz
+requirements.txt: tweepy, pandas, pytz
 
 modules/
 - twitter_api.py
@@ -19,10 +17,14 @@ scripts/
   - get_todays_post() -> str
   - make_daily_post() -> None
 - init_db.py
-  - initialize_db() -> None
+  - posts(id, tweet_id, content, send_date, was_sent)
+- cli/ (interactive scripts)
+  - schedule-post.py
+  - list-posts.py
+  - delete-post.py
+  - analyze-posts.py
 
 db/
-- db.sqlite: posts(id, content, send_date, was_sent)
 - db_methods.py
   - get_post(date: datetime) -> dict
   - index_posts(start_date: datetime, end_date: datetime) -> List[dict]

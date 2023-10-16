@@ -4,6 +4,8 @@ from codemonkeys.defs import STOR_PATH
 
 from monkeys.monkey import Monkey
 
+from codemonkeys.types import OStr
+
 
 @dataclass
 class Scaffold(Monkey):
@@ -14,19 +16,22 @@ class Scaffold(Monkey):
                         " elements declared in the architecture overview (classes, functions, etc).")
 
     # Context / Summary
-    CONTEXT_FILE_PATH: str = f"{STOR_PATH}/context/scaffold.txt"
+    CONTEXT_FILE_PATH: str = f"{STOR_PATH}/context/scaffold/twitter_poster.txt"
+
+    # Project Root Dir
+    PROJECT_ROOT: str = '~/local-git/twitter_poster'
 
     # Filepath Extraction
     FILE_EXTRACTION_PROMPT: str = ("Review the following architectural documentation for a codebase and extract a list "
                                    "of all the filepaths that need to be created to scaffold it. Use absolute paths, "
-                                   "with the project root dir located within ~/local-git.")
+                                   f"with the project root dir {PROJECT_ROOT}.")
 
     # Output
     SKIP_EXISTING_OUTPUT_FILES = True
 
     # Git
     GPT_GIT_COMMITS: bool = False
-    GIT_REPO_PATH: str = '~/local-git/twitter_poster'
+    GIT_REPO_PATH: OStr = None
 
     # Models
     MAIN_MODEL: str = 'gpt-4'
