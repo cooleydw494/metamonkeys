@@ -21,7 +21,7 @@ class IdeDocumentation(Monkey):
         'Limit your response to the verbatim contents of {the-file}, including all existing code and comments, as well as any new docstring. '
         'Always write docstring in the Google style, notating params/returns in a way IDEs understand. Add nothing else, and remove nothing.')
 
-    OUTPUT_PROMPT: OStr = "Output should be nothing more than the updated file contents."
+    OUTPUT_PROMPT: OStr = "Output should be nothing more than the updated file contents for writing."
 
     # Context / Summary
     CONTEXT_FILE_PATH: OStr = None
