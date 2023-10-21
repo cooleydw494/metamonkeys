@@ -7,7 +7,8 @@ from monkeys.monkey import OStr, Monkey
 class Signature(Monkey):
 
     # File Iteration
-    WORK_PATH: str = '~/local-git/twitter_poster'
+    WORK_PATH: str = '~/local-git/nousrss'
+    INCLUDE_EXTS = ('.py',)
     FILEPATH_MATCH_EXCLUDE: tuple = ('help', '__', 'defs.py', 'commands')
     FILTER_MAX_TOKENS: int = 6000
 
@@ -26,6 +27,9 @@ class Signature(Monkey):
     OUTPUT_PROMPT: OStr = "Output should be nothing more than the updated file contents for writing."
 
     # Output
-    OUTPUT_PATH: str = '~/local-git/twitter_poster'
+    OUTPUT_PATH: str = '~/local-git/nousrss'
     SKIP_EXISTING_OUTPUT_FILES: bool = False
     RELATIVE_OUTPUT_PATHS = True
+
+    GIT_REPO_PATH = '~/local-git/nousrss'
+    GPT_GIT_COMMITS = True

@@ -17,10 +17,10 @@ class Scaffold(Monkey):
                                   " are correct.")
 
     # Context / Summary
-    CONTEXT_FILE_PATH: str = f"{STOR_PATH}/context/scaffold/twitter_poster.txt"
+    CONTEXT_FILE_PATH: str = f"{STOR_PATH}/context/scaffold/nousrss_architecture.txt"
 
     # Project Root Dir
-    PROJECT_ROOT: str = '~/local-git/twitter_poster'
+    PROJECT_ROOT: str = '~/local-git/nousrss'
 
     # Filepath Extraction
     FILE_EXTRACTION_PROMPT: str = ("Review the following architectural documentation for a codebase and extract a list "
@@ -31,7 +31,7 @@ class Scaffold(Monkey):
     SKIP_EXISTING_OUTPUT_FILES: bool = True
 
     # Git
-    GPT_GIT_COMMITS: bool = True
+    GPT_GIT_COMMITS: bool = False
     GIT_REPO_PATH: str = PROJECT_ROOT
 
     # Models

@@ -23,14 +23,11 @@ class Monkey(Base):
     CONTEXT_FILE_PATH: OStr = None
     CONTEXT_SUMMARY_PROMPT: OStr = None
 
+    # Output
     OUTPUT_PATH: str = "~/local-git/codemonkeys/codemonkeys"
     OUTPUT_EXT: OStr = None
     OUTPUT_FILENAME_APPEND: OStr = None
     SKIP_EXISTING_OUTPUT_FILES: bool = False
-
-    # Editor
-    EDITOR_PROMPT: OStr = None
-    EDITOR_PROMPT_ULTIMATUM: OStr = None
 
     # Git
     GPT_GIT_COMMITS: bool = False

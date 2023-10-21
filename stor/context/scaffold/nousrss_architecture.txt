@@ -1,0 +1,65 @@
+nousrss/
+├── .env: MYSQL_USER, MYSQL_PASSWORD, MYSQL_HOST, MYSQL_DB
+├── README.md
+├── requirements.txt: fastapi, fastapi_restful, rocketry, uvicorn, jinja2, sqlalchemy, 
+│   sqlalchemy-utils, mysqlclient==2.1.0, colour, beautifulsoup4, feedparser, lxml, python-dateutil,  
+│   python-dotenv
+├── api
+│   └── v1
+│       ├── filters.py
+│       │   ├── filters.py
+│       │   ├── schemas.py
+│       │   └── views.py
+│       ├── schemas.py
+│       └── views.py
+├── common
+│   ├── config.py
+│   └── utils.py
+├── database
+│   ├── models.py
+│   ├── operations.py
+│   │   ├── models.py
+│   │   ├── operations.py
+│   │   └── session.py
+│   └── session.py
+├── main.py
+│   ├── main.py
+│   ├── scheduler.py
+│   └── tasks.py
+├── scheduler.py
+├── tasks.py
+└── webapp
+    ├── components
+    │   ├── articles
+    │   │   ├── article_card.js
+    │   │   ├── article_gallery.js
+    │   │   └── article_header.js
+    │   ├── base.js
+    │   ├── feed
+    │   │   ├── feed_card.js
+    │   │   ├── feed_detail_block.js
+    │   │   ├── feed_gallery.js
+    │   │   ├── feed_header.js
+    │   │   └── new_feed_form.js
+    │   ├── shared
+    │   │   └── search_bar.js
+    │   └── state.js
+    ├── router.py
+    ├── static
+    │   ├── css
+    │   │   ├── feed_detail.css
+    │   │   ├── home.css
+    │   │   └── main.css
+    │   ├── images
+    │   │   ├── background.jpg
+    │   │   └── logo.png
+    │   └── js
+    │       ├── feed_detail.js
+    │       ├── functions.js
+    │       └── home.js
+    └── templates
+        ├── shared
+        │   └── base.html
+        └── views
+            ├── feed_detail.html
+            └── home.html

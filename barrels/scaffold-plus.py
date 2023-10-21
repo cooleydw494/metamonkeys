@@ -8,8 +8,11 @@ class ScaffoldPlus(Barrel):
         (self
 
          # Load a Monkey (omit name to prompt user)
-         .with_monkey('scaffold')
-         .run_automation('scaffold')
+         # .with_monkey('scaffold')
+         # .run_automation('scaffold')
+
+         .with_monkey('signature')
+         .run_automation('default')
 
          .with_monkey('ide_documentation')
          .run_automation('default'))
