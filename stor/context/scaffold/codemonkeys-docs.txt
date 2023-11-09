@@ -1,0 +1,31 @@
+This is a repo for a CodeMonkeys docs website.
+In contrast to the Sphinx docs, which are more technical code-based docs, this site is a full-fledged framework documentation site.
+It uses Vue and SCSS efficiently and elegantly to create a beautiful, responsive site.
+
+/codemonkeys-docs
+    /src
+        router.js
+        /assets
+            app.css
+        main.js
+        App.vue
+        /components
+            nav.vue - props:sesetions(like [{'name': 'Getting Started', 'route': 'getting-started', 'subsections': [{...}}]}]. desktop:sidebar. mobile: hamburger.
+            footer.vue - includes: copyright, github/twitter/linkedin icons.
+            section.vue - slots: title, introduction
+            subsection.vue - slots: title, content
+        /pages
+            home.vue - includes: link to getting started
+            /sections
+                codemonkeys-explained.vue - subsections: Origination, Progress So Far, Goals
+                getting-started.vue - subsections: Overview, Installation
+                monk-cli.vue - subsections: Overview, Entities, Actions, Commands
+                configuration.vue - subsections: Monkeys, Env, Theme
+                commands.vue - subsections: Overview, Command Structure, Command Usage
+                automations.vue - subsections: Overview, Default Automation,
+                barrels.vue - subsections: Overview, Composing Barrels
+                funcs.vue - subsections: What is Function Calling?, Funcs, Func Usage
+                advanced-theme.vue - subsections: Overview, Theme Functions
+                advanced-monkeys.vue - subsections: Overview, Monkey Customization
+                contribution.vue - subsections: Overview, Contributing
+                faq.vue - subsections: Overview, FAQ
