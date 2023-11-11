@@ -1,13 +1,15 @@
 from dataclasses import dataclass
+
+from mixins.x_poster_workspace import XPosterWorkspace
 from monkeys.monkey import OStr, Monkey
 
 
 @dataclass
 class DocstringFormat(Monkey):
-    # File Iteration
-    WORK_PATH: str = "~/local-git/twitter_poster"
-    FILEPATH_MATCH_EXCLUDE: tuple = ('help', '__', 'defs.py', 'commands', 'example-automation.py', 'theme.py')
-    FILTER_MAX_TOKENS: int = 6000
+
+    mixins = (
+        XPosterWorkspace,
+    )
 
     # Main Prompts
     MAIN_PROMPT: str = \
@@ -23,6 +25,3 @@ class DocstringFormat(Monkey):
     # Context / Summary
     CONTEXT_FILE_PATH: OStr = None
     CONTEXT_SUMMARY_PROMPT: OStr = None
-
-    # Output
-    OUTPUT_PATH: str = "~/local-git/twitter_poster"

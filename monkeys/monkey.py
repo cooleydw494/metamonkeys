@@ -9,10 +9,11 @@ class Monkey(Base):
 
     # File Iteration
     WORK_PATH: str = "~/local-git/codemonkeys/codemonkeys"
-    INCLUDE_EXTS: tuple = ('.py')
+    INCLUDE_EXTS: tuple = ('.py',)
     FILEPATH_MATCH_INCLUDE: tuple = ()
     FILEPATH_MATCH_EXCLUDE: tuple = ('.config', '.md', '.git', 'help', '__', 'defs.py')
-    FILTER_MAX_TOKENS: int = 3000
+    FILTER_MAX_TOKENS: int = 8000
+    FILE_SELECT_PROMPT: OStr = None
 
     # Main Prompts
     MAIN_PROMPT: str = "Please generate code for the following task..."
@@ -34,13 +35,16 @@ class Monkey(Base):
     GIT_REPO_PATH: OStr = None
 
     # Models
-    MAIN_MODEL: str = 'gpt-4'
-    SUMMARY_MODEL: str = 'gpt-4'
+    MAIN_MODEL: str = 'gpt-4-1106-preview'
+    SUMMARY_MODEL: str = 'gpt-4-1106-preview'
+    FILE_SELECT_MODEL: str = 'gpt-3.5-turbo'
 
     # Temps
     MAIN_TEMP: float = 1.0
     SUMMARY_TEMP: float = 1.0
+    FILE_SELECT_TEMP: float = 0.8
 
     # Max Tokens
-    MAIN_MAX_TOKENS: int = 5000
-    SUMMARY_MAX_TOKENS: int = 5000
+    MAIN_MAX_TOKENS: int = 16000
+    SUMMARY_MAX_TOKENS: int = 16000
+    FILE_SELECT_MAX_TOKENS: int = 6000

@@ -1,15 +1,20 @@
 from dataclasses import dataclass
 
+from mixins.codemonkeys_workspace import CodemonkeysWorkspace
 from monkeys.monkey import OStr, Monkey
 
 
 @dataclass
 class SelfHelp(Monkey):
 
+    mixins = (
+        CodemonkeysWorkspace,
+    )
+
     # File Iteration
     WORK_PATH: str = "~/local-git/codemonkeys/codemonkeys/commands"
+    OUTPUT_PATH: str = "~/local-git/codemonkeys/codemonkeys/help/commands"
     FILEPATH_MATCH_EXCLUDE: tuple = ('.config', '.md', '.git', 'help', '__', 'defs.py')
-    FILTER_MAX_TOKENS: int = 6000
 
     # Main Prompts
     MAIN_PROMPT: str = \
@@ -28,7 +33,3 @@ class SelfHelp(Monkey):
     # Context / Summary
     CONTEXT_FILE_PATH: OStr = None
     CONTEXT_SUMMARY_PROMPT: OStr = None
-
-    # Output
-    OUTPUT_PATH: str = "~/local-git/codemonkeys/codemonkeys/help/commands"
-    SKIP_EXISTING_OUTPUT_FILES: bool = True

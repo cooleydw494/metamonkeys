@@ -1,15 +1,17 @@
 from dataclasses import dataclass
 
+from mixins.codemonkeys_workspace import CodemonkeysWorkspace
+from mixins.gpt_ultra import GptFourPreview
 from monkeys.monkey import OStr, Monkey
 
 
 @dataclass
 class Commenter(Monkey):
 
-    # File Iteration
-    WORK_PATH: str = "~/local-git/codemonkeys/codemonkeys/commands"
-    FILEPATH_MATCH_EXCLUDE: tuple = ('.config', '.md', '.git', 'commenter', '__', 'defs.py')
-    FILTER_MAX_TOKENS: int = 6000
+    mixins = (
+        CodemonkeysWorkspace,
+        GptFourPreview,
+    )
 
     # Prompts
     MAIN_PROMPT: str = \
@@ -24,7 +26,3 @@ class Commenter(Monkey):
          "as well as any new or altered comments you add. Do not add comments that are not genuinely helpful.")
 
     OUTPUT_PROMPT: str = "Output should be nothing more than the updated file contents."
-
-    # Output
-    OUTPUT_PATH: str = "~/local-git/codemonkeys/codemonkeys/commands"
-    SKIP_EXISTING_OUTPUT_FILES: bool = True
