@@ -45,6 +45,6 @@ class Monkey(Base):
     FILE_SELECT_TEMP: float = 0.8
 
     # Max Tokens
-    MAIN_MAX_TOKENS: int = 16000
-    SUMMARY_MAX_TOKENS: int = 16000
+    MAIN_MAX_TOKENS: int = 8000
+    SUMMARY_MAX_TOKENS: int = 8000
     FILE_SELECT_MAX_TOKENS: int = 6000

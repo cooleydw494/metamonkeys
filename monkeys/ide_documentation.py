@@ -13,20 +13,23 @@ class IdeDocumentation(Monkey):
         CodemonkeysWorkspace,
     )
 
+    WORK_PATH: str = "~/local-git/codemonkeys/codemonkeys/builders"
+    OUTPUT_PATH = "~/local-git/codemonkeys/codemonkeys/builders"
+
     # Main Prompts
     MAIN_PROMPT: str = (
-        'Your role is to read the contents of python files, and without changing anything else whatsoever, '
-        'add doc-blocks providing concise documentation for IDEs. Rather than altering the file in any other way, '
-        'return exactly the verbatim original file with only docstring that help IDEs understand the purpose of the '
-        'code added. Only add docstring where they are genuinely useful, rather than adding them just because you can. '
+        'Your role is to read the contents of Python files, and without changing anything else whatsoever, '
+        'add/improve docstrings/documentation for IDE and Sphinx autodoc purposes. '
+        'Exercise judgement in determining what is useful information. '
         'If there are no docblock additions that are genuinely helpful, return the original file contents verbatim. '
-        'Use the provided project context to assist having a full understanding:')
+        'Use the following reST formatting guide and project context to assist having a full understanding:\n\n'
+        '{cop:~/local-git/metamonkeys/stor/context/rest-guide.md}\n\n')
     MAIN_PROMPT_ULTIMATUM: OStr = (
         'Limit your response to the verbatim contents of {the-file}, including all existing code and comments, '
-        'as well as any new docstring. Always write docstring in the Google style, notating params/returns in a way '
-        'IDEs understand. Add nothing else, and remove nothing.')
+        'as well as any new docstring, following the reST documentation guide closely. Add nothing else, and remove '
+        'nothing.')
 
-    OUTPUT_PROMPT: OStr = "Output should be nothing more than the updated file contents for writing."
+    OUTPUT_PROMPT: OStr = "Output should be the unabridged contents of the updated file."
 
     # Context / Summary
-    CONTEXT_FILE_PATH: OStr = f'~/local-git/codemonkeys/README.md'
+    CONTEXT_FILE_PATH: OStr = f'{STOR_PATH}/context/codemonkeys-docs.md'
