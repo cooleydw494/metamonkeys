@@ -13,16 +13,16 @@ class IdeDocumentation(Monkey):
         CodemonkeysWorkspace,
     )
 
-    WORK_PATH: str = "~/local-git/codemonkeys/codemonkeys/builders"
-    OUTPUT_PATH = "~/local-git/codemonkeys/codemonkeys/builders"
+    WORK_PATH: str = "~/local-git/codemonkeys/codemonkeys"
+    OUTPUT_PATH = "~/local-git/codemonkeys/codemonkeys"
 
     # Main Prompts
     MAIN_PROMPT: str = (
-        'Your role is to read the contents of Python files, and without changing anything else whatsoever, '
-        'add/improve docstrings/documentation for IDE and Sphinx autodoc purposes. '
-        'Exercise judgement in determining what is useful information. '
+        'Your role is to read the contents of Python files, and without changing anything else, '
+        'add/improve docstrings/documentation for IDE and Sphinx autodoc purposes, following the reST Documentation '
+        'Guide for Assistant. Exercise judgement in determining what is useful information. '
         'If there are no docblock additions that are genuinely helpful, return the original file contents verbatim. '
-        'Use the following reST formatting guide and project context to assist having a full understanding:\n\n'
+        'Use the following reST formatting guide and CodeMonkeys project context to guide your understanding:\n\n'
         '{cop:~/local-git/metamonkeys/stor/context/rest-guide.md}\n\n')
     MAIN_PROMPT_ULTIMATUM: OStr = (
         'Limit your response to the verbatim contents of {the-file}, including all existing code and comments, '

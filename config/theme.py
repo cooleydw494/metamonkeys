@@ -9,7 +9,7 @@ class Theme(Base):
     # Looks 👌 with very lil space, but you do you, boo-boo
     max_terminal_width: int = 120
     # Log Verbose Details
-    verbose_logs_enabled: bool = False
+    verbose_logs_enabled: bool = True
 
     # KEYWORDS (bold in CLI prints)
     keywords: list = [

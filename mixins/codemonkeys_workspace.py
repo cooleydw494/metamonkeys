@@ -2,7 +2,9 @@ class CodemonkeysWorkspace:
 
     # File Iteration
     WORK_PATH: str = "~/local-git/codemonkeys/codemonkeys"
-    FILEPATH_MATCH_EXCLUDE: tuple = ('.config', '.md', '.git', 'help', '__', 'committer', 'output_resolver', 'summarizer')
+    FILEPATH_MATCH_EXCLUDE: tuple = ('.config', '.md', '.git', 'help/', '__',
+                                     'scripts/', 'imports/', 'commands/', 'config/', 'examples/', 'defaults/', 'funcs/',
+                                     '/monkeys/')
     FILEPATH_MATCH_INCLUDE: tuple = ()  # empty === all
     INCLUDE_EXTS: tuple = ('.py',)
 
