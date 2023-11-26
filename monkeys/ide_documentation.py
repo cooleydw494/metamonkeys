@@ -13,9 +13,6 @@ class IdeDocumentation(Monkey):
         CodemonkeysWorkspace,
     )
 
-    WORK_PATH: str = "~/local-git/codemonkeys/codemonkeys"
-    OUTPUT_PATH = "~/local-git/codemonkeys/codemonkeys"
-
     # Main Prompts
     MAIN_PROMPT: str = (
         'Your role is to read the contents of Python files, and without changing anything else, '

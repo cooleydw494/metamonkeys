@@ -8,7 +8,6 @@ from codemonkeys.defs import TEMP_PATH
 from codemonkeys.entities.command import Command
 from codemonkeys.utils.monk.theme_functions import print_t
 
-
 class TextZip(Command):
 
     required_arg_keys = ['dir']
