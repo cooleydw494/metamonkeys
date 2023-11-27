@@ -8,15 +8,14 @@ from monkeys.monkey import Monkey
 
 @dataclass
 class Scaffold(Monkey):
-
     mixins = (
         XPosterWorkspace,
     )
 
     # Filepath Extraction
     FILE_SELECT_PROMPT: str = ("Review the following architectural documentation for a codebase and extract a list "
-                                   "of all the filepaths that need to be created to scaffold it. Always use absolute "
-                                   f"paths, with the project root dir {XPosterWorkspace.WORK_PATH} included.")
+                               "of all the filepaths that need to be created to scaffold it. Always use absolute "
+                               f"paths, with the project root dir {XPosterWorkspace.WORK_PATH} included.")
 
     # Main Prompts
     MAIN_PROMPT: str = ("Review the following architectural documentation for a codebase, and write the best "

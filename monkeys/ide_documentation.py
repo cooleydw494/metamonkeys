@@ -1,8 +1,5 @@
 from dataclasses import dataclass
 
-from codemonkeys.defs import STOR_PATH
-
-from mixins.codemonkeys_workspace import CodemonkeysWorkspace
 from mixins.example_workspace import ExampleWorkspace
 from monkeys.monkey import Monkey, OStr
 
