@@ -29,3 +29,8 @@ class Scaffold(Monkey):
 
     # Context / Summary
     CONTEXT_FILE_PATH: str = f"{STOR_PATH}/context/scaffold/x_poster.txt"
+
+    MAIN_MAX_TOKENS = 4000
+    SUMMARY_MAX_TOKENS = 4000
+    FILE_SELECT_MAX_TOKENS = 4000
+    FILTER_MAX_TOKENS = 4000

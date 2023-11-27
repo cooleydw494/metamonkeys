@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from codemonkeys.defs import STOR_PATH
 
 from mixins.codemonkeys_workspace import CodemonkeysWorkspace
+from mixins.example_workspace import ExampleWorkspace
 from monkeys.monkey import Monkey, OStr
 
 
@@ -10,7 +11,7 @@ from monkeys.monkey import Monkey, OStr
 class IdeDocumentation(Monkey):
 
     mixins = (
-        CodemonkeysWorkspace,
+        ExampleWorkspace,
     )
 
     # Main Prompts
@@ -27,6 +28,3 @@ class IdeDocumentation(Monkey):
         'nothing.')
 
     OUTPUT_PROMPT: OStr = "Output should be the unabridged contents of the updated file."
-
-    # Context / Summary
-    CONTEXT_FILE_PATH: OStr = f'{STOR_PATH}/context/codemonkeys-docs.md'

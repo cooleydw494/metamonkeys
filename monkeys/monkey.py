@@ -35,8 +35,10 @@ class Monkey(Base):
     GIT_REPO_PATH: OStr = None
 
     # Models
-    MAIN_MODEL: str = 'gpt-4-1106-preview'
-    SUMMARY_MODEL: str = 'gpt-4-1106-preview'
+    # MAIN_MODEL: str = 'gpt-4-1106-preview'
+    # SUMMARY_MODEL: str = 'gpt-4-1106-preview'
+    MAIN_MODEL: str = 'gpt-4'
+    SUMMARY_MODEL: str = 'gpt-4'
     FILE_SELECT_MODEL: str = 'gpt-3.5-turbo'
 
     # Temps
@@ -45,6 +47,6 @@ class Monkey(Base):
     FILE_SELECT_TEMP: float = 0.8
 
     # Max Tokens
-    MAIN_MAX_TOKENS: int = 8000
-    SUMMARY_MAX_TOKENS: int = 8000
+    MAIN_MAX_TOKENS: int = 5000
+    SUMMARY_MAX_TOKENS: int = 5000
     FILE_SELECT_MAX_TOKENS: int = 6000
