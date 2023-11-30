@@ -19,6 +19,7 @@ class IdeDocumentation(Monkey):
         'If there are no docblock additions that are genuinely helpful, return the original file contents verbatim. '
         'Use the following reST formatting guide and CodeMonkeys project context to guide your understanding:\n\n'
         '{cop:~/local-git/metamonkeys/stor/context/rest-guide.md}\n\n')
+
     MAIN_PROMPT_ULTIMATUM: OStr = (
         'Limit your response to the verbatim contents of {the-file}, including all existing code and comments, '
         'as well as any new docstring, following the reST documentation guide closely. Add nothing else, and remove '

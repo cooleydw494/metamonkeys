@@ -14,7 +14,7 @@ class SelfHelp(Monkey):
     # File Iteration
     WORK_PATH: str = "~/local-git/codemonkeys/codemonkeys/commands"
     OUTPUT_PATH: str = "~/local-git/codemonkeys/codemonkeys/help/commands"
-    FILEPATH_MATCH_EXCLUDE: tuple = ('.config', '.md', '.git', 'help', '__', 'defs.py')
+    FILEPATH_MATCH_EXCLUDE: tuple = ('.config', '.md', '.git', '__', 'defs.py')
 
     # Main Prompts
     MAIN_PROMPT: str = \
@@ -33,3 +33,5 @@ class SelfHelp(Monkey):
     # Context / Summary
     CONTEXT_FILE_PATH: OStr = None
     CONTEXT_SUMMARY_PROMPT: OStr = None
+
+    SKIP_EXISTING_OUTPUT_FILES: bool = True
